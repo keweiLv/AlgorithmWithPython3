@@ -29,3 +29,20 @@ class Solution:
             ans += a * b * c
             a += b
         return ans
+
+    # 打家劫舍
+    def rob(self, nums: List[int]) -> int:
+        pre = 0
+        cur = 0
+        for i in nums:
+            pre, cur = cur, max(cur, pre + i)
+        return cur
+
+    # 打家劫舍二
+    def rob(self, nums: List[int]) -> int:
+        def my_rob(nums):
+            pre, cur = 0, 0
+            for num in nums:
+                pre, cur = cur, max(cur, pre + num)
+            return cur
+        return max(my_rob(nums[:-1]),my_rob(nums[1:])) if len(nums) != 1 else nums[0]
