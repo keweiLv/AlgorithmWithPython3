@@ -45,4 +45,18 @@ class Solution:
             for num in nums:
                 pre, cur = cur, max(cur, pre + num)
             return cur
-        return max(my_rob(nums[:-1]),my_rob(nums[1:])) if len(nums) != 1 else nums[0]
+
+        return max(my_rob(nums[:-1]), my_rob(nums[1:])) if len(nums) != 1 else nums[0]
+
+    # 消除游戏
+    def lastRemaining(self, n: int) -> int:
+        head = 1
+        step = 1
+        left = True
+        while n > 1:
+            if left or n % 2 != 0:
+                head += step
+            step <<= 1
+            n >>= 1
+            left = not left
+        return head
