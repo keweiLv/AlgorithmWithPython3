@@ -60,3 +60,9 @@ class Solution:
             n >>= 1
             left = not left
         return head
+
+    # 回环句
+    def isCircularSentence(self, sentence: str) -> bool:
+        ss = sentence.split()
+        n = len(ss)
+        return all(s[-1] == ss[(i+1) % n][0] for i,s in enumerate(ss))
