@@ -1,3 +1,4 @@
+import collections
 from collections import Counter
 from typing import List
 
@@ -65,4 +66,17 @@ class Solution:
     def isCircularSentence(self, sentence: str) -> bool:
         ss = sentence.split()
         n = len(ss)
-        return all(s[-1] == ss[(i+1) % n][0] for i,s in enumerate(ss))
+        return all(s[-1] == ss[(i + 1) % n][0] for i, s in enumerate(ss))
+
+    # 前 n 个数字二进制中 1 的个数
+    def countBits(self, n: int) -> List[int]:
+        res = [0] * (n + 1)
+        for i in range(n + 1):
+            res[i] = res[i >> 1] + (i & 1)
+        return res
+
+    # 只出现一次的数字
+    def singleNumber(self, nums: List[int]) -> int:
+        cnt = collections.Counter(nums)
+        ans = [num for num, occ in cnt.items() if occ == 1][0]
+        return ans
