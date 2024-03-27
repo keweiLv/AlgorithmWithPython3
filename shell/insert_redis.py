@@ -4,8 +4,8 @@ import string
 
 # 创建 Redis 连接
 redis_host = '175.178.19.5'  # Redis 服务器地址
-redis_port = 6379  # Redis 服务器端口
-redis_password = 'kezi520'  # 如果有密码，填写密码，否则为 None
+redis_port = 61379  # Redis 服务器端口
+redis_password = '******'  # 如果有密码，填写密码，否则为 None
 
 redis_conn = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
 
